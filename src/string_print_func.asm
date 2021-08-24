@@ -5,16 +5,16 @@ string_print_func:
   pusha
   mov   ah, 0x0e ; int =10/ ah =0 x0e -> BIOS tele - type output
   mov   al, [bx]
-  jmp   main_loop
+  jmp   string_print_main_loop
 
-main_loop:
+string_print_main_loop:
   cmp   al, 0
-  je    end
+  je    string_print_end
   int   0x10 ; print the character in al
   add   bx, 1 ; pointer arithmetic - increment pointer by one
   mov   al, [bx]
-  jmp   main_loop
+  jmp   string_print_main_loop
 
-end:
+string_print_end:
   popa
   ret

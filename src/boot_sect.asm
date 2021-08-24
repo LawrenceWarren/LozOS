@@ -9,9 +9,12 @@
   mov   bx, GOODBYE_MSG
   call  string_print_func
 
+  call  hex_print_func
+
   jmp   $ ; Hang
 
 %include "src/string_print_func.asm"
+%include "src/hex_print_func.asm"
 
 ; Data
 HELLO_MSG:
