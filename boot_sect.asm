@@ -22,17 +22,6 @@ HELLO_MSG:
 GOODBYE_MSG:
   db  'Goodbye, world!', 0
 
-secret:
-  db 'XYZ', 0
-
-
-
-
-
-
-
-
-
 ; NOTHING BELOW HERE!
 
   times 510-($-$$) db 0 ; When compiled , our program must fit into 512 bytes ,
