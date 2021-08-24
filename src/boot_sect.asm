@@ -1,19 +1,17 @@
 ;
 ; A simple boot sector program that prints a message then loops forever.
 
-
-
 [org 0x7c00] ; Tells the assembler where this code will be loaded
 
   mov   bx, HELLO_MSG
-  call  hex_print_func
+  call  string_print_func
 
   mov   bx, GOODBYE_MSG
-  call  hex_print_func
+  call  string_print_func
 
   jmp   $ ; Hang
 
-%include "hex_print_func.asm"
+%include "src/string_print_func.asm"
 
 ; Data
 HELLO_MSG:
