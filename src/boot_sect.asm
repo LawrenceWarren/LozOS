@@ -3,12 +3,13 @@
 
 [org 0x7c00] ; Tells the assembler where this code will be loaded
 
-  mov   bx, HELLO_MSG
-  call  string_print_func
+  ;mov   bx, HELLO_MSG
+  ;call  string_print_func
 
-  mov   bx, GOODBYE_MSG
-  call  string_print_func
+  ;mov   bx, GOODBYE_MSG
+  ;call  string_print_func
 
+  mov   dx, 0x1fb6
   call  hex_print_func
 
   jmp   $ ; Hang
@@ -22,6 +23,12 @@ HELLO_MSG:
 
 GOODBYE_MSG:
   db  'Goodbye, world!', 0
+
+HEX_OUT:
+  db '0x0000',0
+
+
+
 
 ; NOTHING BELOW HERE!
 
