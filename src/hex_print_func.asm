@@ -4,8 +4,25 @@
 hex_print_func:
   pusha
   mov   bx, HEX_OUT ; cl will point to the element of the hex string to set
-  add   bx, 2       ; move past '0x', leave us pointing at first position
-  
+  add   bx, 0d2       ; move past '0x', leave us pointing at first position
+
+  ; first char
+  mov   ax, 0x0000
+  mov   ah, dh
+  and   ah, 0xf0
+  shr   ah, 0d4
+  add   ah, 0d48
+  mov   [bx], ah
+  add   bx, 0d1
+
+  ; second char
+  ; mov   ax, 0x0000
+  ; mov   ah, dh
+  ; and   ah, 0x0f
+  ; shr   ah, 0d4
+  ; add   ah, 0d65
+  ; mov   [bx], ah
+  ; add   bx, 0d1
 
 
   ; done!
