@@ -3,11 +3,17 @@
 
 [org 0x7c00] ; Tells the assembler where this code will be loaded
 
-  ;mov   bx, HELLO_MSG
-  ;call  string_print_func
+  mov [BOOT_DRIVE], dl    ; BIOS stores our boot drive in DL , so it ’s
+                          ; best to remember this for later.
 
-  ;mov   bx, GOODBYE_MSG
-  ;call  string_print_func
+  mov bp, 0x8000          ; Here we set our stack safely out of the
+  mov sp, bp              ; way , at 0 x8000
+
+  mov   bx, HELLO_MSG
+  call  string_print_func
+
+  mov   bx, GOODBYE_MSG
+  call  string_print_func
 
   mov   dx, 0x1fb6
   call  hex_print_func
@@ -27,10 +33,11 @@ GOODBYE_MSG:
 HEX_OUT:
   db '0x0000',0
 
+; Global variables
+BOOT_DRIVE: 
+  db 0
 
-
-
-; NOTHING BELOW HERE!
+; PUT NOTHING BELOW HERE!
 
   times 510-($-$$) db 0 ; When compiled , our program must fit into 512 bytes ,
                         ; with the last two bytes being the magic number ,
