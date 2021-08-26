@@ -31,20 +31,28 @@
   
   mov dx, [0x9000 + 512]  ; Also , print the first word from the
   call hex_print_func     ; 2nd loaded sector : should be 0 xface
-
+  
   jmp   $ ; Hang
 
 %include "src/string_print_func.asm"
 %include "src/hex_print_func.asm"
 %include "src/disk_load.asm"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ; Data
-HELLO_MSG:
-  db  'Hello, World!', 0
-
-GOODBYE_MSG:
-  db  'Goodbye, world!', 0
-
 HEX_OUT:
   db '0x0000', 0
 
