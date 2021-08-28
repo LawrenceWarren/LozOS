@@ -37,7 +37,7 @@
 %include "src/string_print_func.asm"
 %include "src/hex_print_func.asm"
 %include "src/disk_load.asm"
-
+%include "src/gdt.asm"
 
 
 

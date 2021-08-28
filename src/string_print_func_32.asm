@@ -1,5 +1,8 @@
 [bits 32]
 
+; TODO: this script always prints to the top left of the screen,
+; always overwriting previous text. Fix this?
+
 ; Define some constants
 VIDEO_MEMORY equ 0xb8000
 WHITE_ON_BLACK equ 0x0f
