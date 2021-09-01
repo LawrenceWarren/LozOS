@@ -13,25 +13,24 @@
 
   jmp $
 
-%include "src/string_print_func_32.asm"
 %include "src/string_print_func.asm"
 %include "src/gdt.asm"
+%include "src/string_print_func_32.asm"
 %include "src/switch_to_pm.asm"
 
 [bits 32]
 
 ; This is where we arrive after switching to and initialising protected mode.
 BEGIN_PM:
+
   mov ebx, MSG_PROT_MODE
   call string_print_func_32 ; Use our 32 - bit print routine.
 
   jmp $ ; Hang
 
   ; Global variables
-MSG_REAL_MODE:
-  db 'Started in 16-bit Real Mode', 0
-MSG_PROT_MODE:
-  db 'Successfully landed in 32-bit Protected Mode', 0
+MSG_REAL_MODE db 'Started in 16-bit Real Mode', 0
+MSG_PROT_MODE db 'Successfully landed in 32-bit Protected Mode', 0
   
 
 
