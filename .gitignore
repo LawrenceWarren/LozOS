@@ -1,1 +1,2 @@
-boot_sect.bin
+*.bin
+*.o
