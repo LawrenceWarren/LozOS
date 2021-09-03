@@ -6,7 +6,7 @@ mkdir bin
 mkdir obj
 
 # assemble the bootsector
-nasm src/boot_sect.asm -f bin -o bin/boot_sect.bin
+nasm src/boot/boot_sect.asm -f bin -o bin/boot_sect.bin
 # Building an object file
 nasm src/kernel/kernel_entry.asm -f elf64 -o obj/kernel_entry.o
 
