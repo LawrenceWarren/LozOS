@@ -7,10 +7,13 @@ mkdir obj
 
 # assemble the bootsector
 nasm src/boot_sect.asm -f bin -o bin/boot_sect.bin
+# Building an object file
+nasm src/kernel/kernel_entry.asm -f elf64 -o obj/kernel_entry.o
 
-# compile the kernel
+# Build an object file
 gcc -ffreestanding -c src/kernel/kernel.c -o obj/kernel.o
-ld -o bin/kernel.bin -Ttext 0x1000 obj/kernel.o --oformat binary
+# compile the kernel
+ld -o bin/kernel.bin -Ttext 0x1000 obj/kernel_entry.o obj/kernel.o --oformat binary
 
-# Build the os-image file
+# Concatenate the os-image file
 cat bin/boot_sect.bin bin/kernel.bin > bin/os-image
