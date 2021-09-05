@@ -4,7 +4,7 @@ HEADERS = $(wildcard src/kernel/*.h src/drivers/*.h)
 
 # TODO : Make sources dep on all header files .
 
-OBJ = ${wildcard obj/*.o}
+OBJ = ${C_SOURCES:.c=.o}
 
 # Defaul build target
 all: os-image
